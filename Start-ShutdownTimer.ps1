@@ -19,7 +19,7 @@ while ($true) {
 
     if ($result -eq 6) {
         $extensions++
-        if ($extensions -ge $MaxExtensions) {
+        if ($extensions -gt $MaxExtensions) {
             Stop-Computer -Force
         }
         Start-Sleep -Seconds ($ExtensionMinutes * 60)
