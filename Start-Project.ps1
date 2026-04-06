@@ -1,5 +1,5 @@
 function Start-Project {
-    [Alias['sp']]
+    [Alias('stp')]
     param(
         [String]$Project = 'packmine',
         [Switch]$Docker,
@@ -14,7 +14,7 @@ function Start-Project {
     }
 
     if ($all -or $Code) {
-        Start-Process "$env:ProgramFiles\Microsoft VS Code\Code.exe" `
+        Start-Process $BoatPS_CodePath `
             -ArgumentList '--remote', "wsl+Ubuntu", "$BoatPS_WslDevPath/$Project"
     }
 
