@@ -10,7 +10,7 @@ function Start-Project {
     $all = -not ($Docker -or $Code -or $Wsl)
 
     if ($all -or $Docker) {
-        Start-Process 'C:\Program Files\Docker\Docker\Docker Desktop.exe'
+        Start-Process 'C:\Program Files\Docker\Docker\Docker Desktop.exe' | Out-Null
     }
 
     if ($all -or $Code) {
@@ -19,6 +19,6 @@ function Start-Project {
     }
 
     if ($all -or $Wsl) {
-        wsl --cd "$BoatPS_WslDevPath/$Project"
+        wt -w 0 new-tab wsl --cd "$BoatPS_WslDevPath/$Project"
     }
 }
